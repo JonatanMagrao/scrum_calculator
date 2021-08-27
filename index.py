@@ -16,9 +16,9 @@ import math
 def min(week):
     tim = int(math.floor(45*week))
     hor = '0'+ str(math.floor(tim/60))
-    #não consegui formatar os minutos certinho quando zera, no caso, quando a sprint é de 4 semanas
     min = tim%60
-    return '{}h{} min'.format(hor,min)
+    min = f'0{min}' if min < 10 else min
+    return f'{hor}h{min} min'
 
 def planning():
     sprint = int(input('Qual é o tempo da Spring em semanas? '))
@@ -26,13 +26,13 @@ def planning():
         print('\nAlgo de errado que não está certo!\nA Sprint precisa ter entre 1 e 4 semanas.\n')
     else:
         plural = 's' if sprint > 1 else ''
-        planning = 'O tempo do Planning Meeting é de {} horas.'.format(sprint*2)
-        review = 'O tempo da Sprint Review é de {} hora{}.'.format(sprint,plural)
-        retrospective = 'O tempo da Sprint Retrospective é de {}.'.format(min(sprint))
+        planning = f'O tempo do Planning Meeting é de {sprint*2} horas.'
+        review = f'O tempo da Sprint Review é de {sprint} hora{plural}.'
+        retrospective = f'O tempo da Sprint Retrospective é de {min(sprint)}.'
         print(
-            '\nO tempo da Sprint é de {} semana{}.\n'.format(sprint,plural) + 
+            f'\nO tempo da Sprint é de {sprint} semana{plural}.\n'
             'O tempo da Daily Meeting é sempre de 15 minutos\n' + 
-            '{}\n{}\n{}\n'.format(planning,review,retrospective)
+            f'{planning}\n{review}\n{retrospective}\n'
         )        
 
 planning()
