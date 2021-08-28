@@ -25,14 +25,13 @@ def planning():
     if sprint < 1:
         print('\nAlgo de errado que não está certo!\nA Sprint precisa ter entre 1 e 4 semanas.\n')
     else:
-        plural = 's' if sprint > 1 else ''
-        planning = f'O tempo do Planning Meeting é de {sprint*2} horas.'
-        review = f'O tempo da Sprint Review é de {sprint} hora{plural}.'
-        retrospective = f'O tempo da Sprint Retrospective é de {min(sprint)}.'
-        print(
-            f'\nO tempo da Sprint é de {sprint} semana{plural}.\n'
-            'O tempo da Daily Meeting é sempre de 15 minutos\n' + 
-            f'{planning}\n{review}\n{retrospective}\n'
-        )        
+        plural = 's' if sprint > 1 else ''       
+        print(f'''
+        O tempo da Sprint é de {sprint} semana{plural}.
+        O tempo da Daily Meeting é sempre de 15 minutos.
+        O tempo do Planning Meeting é de {sprint*2} horas.
+        O tempo da Sprint Review é de {sprint} hora{plural}.
+        O tempo da Sprint Retrospective é de {min(sprint)}.\n'''
+        )
 
 planning()
